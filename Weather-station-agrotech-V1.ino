@@ -17,7 +17,7 @@ char ssid[] = "MGBot";
 char pass[] = "Terminator812";
 
 // API key для Blynk
-char auth[] = "4c4519c9c9c9443093aaa958510fea47";
+char auth[] = "073f88d5cffa475484641e3018533442";
 IPAddress blynk_ip(139, 59, 206, 133);
 
 // LCD windget in Blynk APP
@@ -71,6 +71,7 @@ float sensorValues[sensorCount];
 #define wind_dir     0x05
 #define rain         0x06
 
+// Обработчик прерывания с датчика осадков
 void IRAM_ATTR counterRain()
 {
   rain_rate = rain_rate + 1;
@@ -149,7 +150,7 @@ void readSensorBH1750()
   Serial.println(sensorValues[sun_light]);
 }
 
-// Чтение датчика BME280, VEML6075 и отправка данных на сервер
+// Чтение датчиков BME280, VEML6075 и отправка данных на сервер
 void readSensorBME280()
 {
   veml6075.poll();
